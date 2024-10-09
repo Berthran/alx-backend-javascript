@@ -1,20 +1,16 @@
 export default function cleanSet(set, startString) {
-  const array = Array.from(set);
-  const newArray = array.map(
-    (ele) => {
-      if (startString !== '') {
-        return (ele.startsWith(startString) ? ele.slice(startString.length) : undefined);
-      }
-      return (undefined);
-    },
-  );
-
-  const match = newArray.filter((ele) => ele !== undefined);
-  if (match.length === 0) {
+  if (startString === '') {
     return ('');
   }
-  const cleanString = match.reduce(
-    (acc, cval) => acc.concat('-', cval),
-  );
-  return (cleanString);
+
+  let result = '';
+
+  for (const ele of set) {
+    if (ele.startsWith(startString)) {
+      const cleanEle = ele.slice(startString.length);
+      result += result ? `-${cleanEle}` : cleanEle;
+    }
+  }
+
+  return result;
 }
