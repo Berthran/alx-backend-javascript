@@ -5,6 +5,9 @@ export default function cleanSet(set, startString) {
   if (startString === '' || startString === undefined) {
     return ('');
   }
+  if (typeof startString !== 'string') {
+    return ('');
+  }
 
   let result = '';
 
