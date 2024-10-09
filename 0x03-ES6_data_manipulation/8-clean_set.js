@@ -1,6 +1,6 @@
 export default function cleanSet(set, startString) {
   // Check if the set is empty or startString is empty
-  if (set.size === 0 || startString === '') {
+  if (set.size === 0 || startString === '' || startString === undefined) {
     return '';
   }
 
