@@ -1,16 +1,26 @@
 export default function cleanSet(set, startString) {
-  if (startString === '' || !(set instanceof Set)) {
-    return ('');
+  // Check if the set is empty or startString is empty
+  if (set.size === 0 || startString === '') {
+    return '';
   }
 
-  let result = '';
+  // Initialize an array to hold the matched values
+  const results = [];
 
-  for (const ele of set) {
-    if (ele.startsWith(startString)) {
-      const cleanEle = ele.slice(startString.length);
-      result += result ? `-${cleanEle}` : cleanEle;
+  // Iterate through the set
+  for (const value of set) {
+    // Check if the value starts with startString
+    if (value.startsWith(startString)) {
+      // Append the substring after startString to the results array
+      results.push(value.slice(startString.length));
     }
   }
 
-  return result;
+  // If there are no results, return an empty string
+  if (results.length === 0) {
+    return '';
+  }
+
+  // Join the results array with '-' and return
+  return results.join('-');
 }
