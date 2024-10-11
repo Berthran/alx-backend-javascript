@@ -1,15 +1,12 @@
-/* eslint-disable no-unused-vars */
 import { uploadPhoto, createUser } from './utils';
 
-export default function handleProfileSignup() {
-  const photoPromise = uploadPhoto();
-  const userPromise = createUser();
+export default function handleProfileSignUp() {
+  const photo = uploadPhoto();
+  const user = createUser();
 
-  return Promise.all([photoPromise, userPromise])
-    .then((values) => {
-      console.log(values[0].body,
-        values[1].firstName,
-        values[1].lastName);
-    })
-    .catch(() => console.log('Signup sysyem offline'))
+  // Resolve all promises with the .all() method
+  Promise.all([photo, user]).then((values) => {
+    console.log(`${values[0].body} ${values[1].firstName} ${values[1].lastName}`);
+  })
+    .catch(() => console.log('Signup system offline'));
 }
