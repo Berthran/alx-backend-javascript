@@ -14,5 +14,5 @@ export default async function handleProfileSignUp(firstName, lastName, fileName)
   const userDetails = signUpUser(firstName, lastName);
   const photoUpload = uploadPhoto(fileName);
   const results = await Promise.allSettled([userDetails, photoUpload]);
-  return results;
+  return console.log(results);
 }
