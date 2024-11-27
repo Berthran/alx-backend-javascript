@@ -1,25 +1,26 @@
 // Read a file synchronously with Node JS
 const fs = require('fs');
 
-function countStudents (filepath) {
+function countStudents(filepath) {
   try {
     // Read the file synchronously
     const data = fs.readFileSync(filepath, 'utf8');
 
-    const lines = data.split('\n').filter(line => line.trim() != '');
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
 
     if (lines.length === 0) {
       throw new Error('Cannot load the database');
     }
 
     // remove the header line
-    const header = lines.shift();
+    lines.shift();
 
     // Parse student data
-    const students = lines.map(line => line.split(','));
+    const students = lines.map((line) => line.split(','));
     const fields = {};
 
-    students.forEach(student => {
+    students.forEach((student) => {
+      /* eslint-disable no-unused-vars */
       const [firstname, lastname, age, field] = student;
       if (field) {
         if (!fields[field]) {
