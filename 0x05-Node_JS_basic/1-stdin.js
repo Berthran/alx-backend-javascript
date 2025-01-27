@@ -5,7 +5,6 @@ process.stdin.on('data', (data) => {
 
   process.stdout.write(`Your name is: ${name}\r`);
   // console.log(`Your name is: ${name}`);
-  process.exit(0);
 
   if (!process.stdin.isTTY) {
     // process.stdout.write('This important software is now closing\r\n');
