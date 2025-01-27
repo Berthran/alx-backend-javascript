@@ -2,7 +2,7 @@ const http = require('http');
 
 const app = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' }); // Set response content type to plain text
-  res.end('Hello ALX!'); // Send the response
+  res.end('Hello Holberton School!'); // Send the response
 });
 
 // Server listens on port 1245
